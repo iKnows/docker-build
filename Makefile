@@ -1,6 +1,6 @@
 SHELL:=/bin/bash
-ENGINE_DIR:=$(CURDIR)/../engine
-CLI_DIR:=$(CURDIR)/../cli
+ENGINE_DIR:=$(CURDIR)/.release/engine
+CLI_DIR:=$(CURDIR)/.release/cli
 VERSION?=0.0.0-dev
 DOCKER_GITCOMMIT:=abcdefg
 

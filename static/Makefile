@@ -1,6 +1,6 @@
 SHELL:=/bin/bash
-ENGINE_DIR:=$(CURDIR)/../../engine
-CLI_DIR:=$(CURDIR)/../../cli
+ENGINE_DIR:=$(CURDIR)/../.release/engine
+CLI_DIR:=$(CURDIR)/../.release/cli
 VERSION?=0.0.0-dev
 STATIC_VERSION=$(shell ./gen-static-ver $(ENGINE_DIR) $(VERSION))
 CHOWN=docker run --rm -v $(CURDIR):/v -w /v alpine chown

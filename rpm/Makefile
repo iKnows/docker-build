@@ -1,6 +1,6 @@
 ARCH=$(shell uname -m)
-ENGINE_DIR:=$(CURDIR)/../../engine
-CLI_DIR:=$(CURDIR)/../../cli
+ENGINE_DIR:=$(CURDIR)/../.release/engine
+CLI_DIR:=$(CURDIR)/../.release/cli
 GITCOMMIT=$(shell cd $(ENGINE_DIR) && git rev-parse --short HEAD)
 VERSION?=0.0.0-dev
 DOCKER_EXPERIMENTAL=0
