@@ -2,7 +2,12 @@
 
 
 prepare(){
-    mkdir -p .release/tmp
+    [ -d ".release" ] && (
+        rm -rf .release
+        mkdir -p .release/tmp
+    ) || (
+        mkdir -p .release/tmp
+    )
     git clone https://github.com/docker/docker-ce.git .release/tmp/
     mv .release/tmp/components/cli .release/
     mv .release/tmp/components/engine .release/
