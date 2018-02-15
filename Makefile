@@ -15,14 +15,14 @@ clean: ## remove build artifacts
 	$(MAKE) -C static clean
 
 .PHONY: rpm
-rpm: DOCKER_BUILD_PKGS:=fedora-27 fedora-26 centos-7
+rpm: DOCKER_BUILD_PKGS:=centos-7
 rpm: ## build rpm packages
 	for p in $(DOCKER_BUILD_PKGS); do \
 		$(MAKE) -C $@ VERSION=$(VERSION) ENGINE_DIR=$(ENGINE_DIR) CLI_DIR=$(CLI_DIR) $${p}; \
 	done
 
 .PHONY: deb
-deb: DOCKER_BUILD_PKGS:=ubuntu-zesty ubuntu-xenial ubuntu-trusty debian-buster debian-stretch debian-wheezy debian-jessie raspbian-stretch raspbian-jessie
+deb: DOCKER_BUILD_PKGS:=ubuntu-xenial debian-stretch
 deb: ## build deb packages
 	for p in $(DOCKER_BUILD_PKGS); do \
 		$(MAKE) -C $@ VERSION=$(VERSION) ENGINE_DIR=$(ENGINE_DIR) CLI_DIR=$(CLI_DIR) $${p}; \
