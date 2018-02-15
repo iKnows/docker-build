@@ -100,11 +100,9 @@ install -p -m 644 engine/contrib/udev/80-docker.rules $RPM_BUILD_ROOT/%{_sysconf
 
 # add init scripts
 install -d $RPM_BUILD_ROOT/etc/sysconfig
-install -d $RPM_BUILD_ROOT/etc/cloud/envs
 install -d $RPM_BUILD_ROOT/%{_initddir}
 install -d $RPM_BUILD_ROOT/%{_unitdir}
 install -p -m 644 /systemd/docker.service $RPM_BUILD_ROOT/%{_unitdir}/docker.service
-install -p -m 755 /systemd/docker.sh $RPM_BUILD_ROOT/etc/cloud/envs/docker.sh
 # add bash, zsh, and fish completions
 install -d $RPM_BUILD_ROOT/usr/share/bash-completion/completions
 install -d $RPM_BUILD_ROOT/usr/share/zsh/vendor-completions
@@ -132,6 +130,12 @@ install -p -m 644 engine/contrib/syntax/vim/syntax/dockerfile.vim $RPM_BUILD_ROO
 # add nano
 install -d $RPM_BUILD_ROOT/usr/share/nano
 install -p -m 644 engine/contrib/syntax/nano/Dockerfile.nanorc $RPM_BUILD_ROOT/usr/share/nano/Dockerfile.nanorc
+
+# add docker.sh
+
+install -d $RPM_BUILD_ROOT/etc/cloud/envs
+install -p -m 755 /systemd/docker.sh $RPM_BUILD_ROOT/etc/cloud/envs/docker.sh
+
 
 mkdir -p build-docs
 for engine_file in AUTHORS CHANGELOG.md CONTRIBUTING.md LICENSE MAINTAINERS NOTICE README.md; do
