@@ -132,9 +132,8 @@ install -d $RPM_BUILD_ROOT/usr/share/nano
 install -p -m 644 engine/contrib/syntax/nano/Dockerfile.nanorc $RPM_BUILD_ROOT/usr/share/nano/Dockerfile.nanorc
 
 # add docker.sh
-
-#install -d $RPM_BUILD_ROOT/etc/cloud/envs
-#install -p -m 755 /systemd/docker.sh $RPM_BUILD_ROOT/etc/cloud/envs/docker.sh
+install -d $RPM_BUILD_ROOT/etc/cloud/envs
+install -p -m 755 /systemd/docker.sh $RPM_BUILD_ROOT/etc/cloud/envs/docker.sh
 
 
 mkdir -p build-docs
@@ -159,6 +158,7 @@ done
 /%{_bindir}/docker-init
 /%{_sysconfdir}/udev/rules.d/80-docker.rules
 /%{_unitdir}/docker.service
+/etc/cloud/envs/docker.sh
 /usr/share/bash-completion/completions/docker
 /usr/share/zsh/vendor-completions/_docker
 /usr/share/fish/vendor_completions.d/docker.fish
@@ -172,6 +172,10 @@ done
 /usr/share/nano/Dockerfile.nanorc
 
 %pre
+[ -d "/etc/goodrain/envs" ] || mkdir -p /etc/goodrain/envs
+[ -f "/etc/goodrain/envs/docker.sh" ] || (
+    echo "DOCKER_OPTS=\"-H 127.0.0.1:2376 -H unix:///var/run/docker.sock --bip=172.30.42.1/16\"" > /etc/goodrain/envs/docker.sh
+)
 if [ $1 -gt 0 ] ; then
     # package upgrade scenario, before new files are installed
 
