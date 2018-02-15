@@ -104,7 +104,7 @@ install -d $RPM_BUILD_ROOT/etc/cloud/envs
 install -d $RPM_BUILD_ROOT/%{_initddir}
 install -d $RPM_BUILD_ROOT/%{_unitdir}
 install -p -m 644 /systemd/docker.service $RPM_BUILD_ROOT/%{_unitdir}/docker.service
-install -p -m 644 /systemd/docker.sh $RPM_BUILD_ROOT/etc/cloud/envs/docker.sh
+install -p -m 755 /systemd/docker.sh $RPM_BUILD_ROOT/etc/cloud/envs/docker.sh
 # add bash, zsh, and fish completions
 install -d $RPM_BUILD_ROOT/usr/share/bash-completion/completions
 install -d $RPM_BUILD_ROOT/usr/share/zsh/vendor-completions
