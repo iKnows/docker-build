@@ -1,7 +1,7 @@
 SHELL:=/bin/bash
 ENGINE_DIR:=$(CURDIR)/.release/engine
 CLI_DIR:=$(CURDIR)/.release/cli
-VERSION?=0.0.0-dev
+VERSION?=local
 DOCKER_GITCOMMIT:=abcdefg
 
 .PHONY: help

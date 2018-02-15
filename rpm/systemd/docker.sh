@@ -1,0 +1,1 @@
+DOCKER_OPTS="-H 127.0.0.1:2376 -H unix:///var/run/docker.sock --bip=172.30.42.1/16 "
