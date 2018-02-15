@@ -133,8 +133,8 @@ install -p -m 644 engine/contrib/syntax/nano/Dockerfile.nanorc $RPM_BUILD_ROOT/u
 
 # add docker.sh
 
-install -d $RPM_BUILD_ROOT/etc/cloud/envs
-install -p -m 755 /systemd/docker.sh $RPM_BUILD_ROOT/etc/cloud/envs/docker.sh
+#install -d $RPM_BUILD_ROOT/etc/cloud/envs
+#install -p -m 755 /systemd/docker.sh $RPM_BUILD_ROOT/etc/cloud/envs/docker.sh
 
 
 mkdir -p build-docs
